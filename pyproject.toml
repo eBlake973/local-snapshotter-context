@@ -1,6 +1,6 @@
 [project]
 name = "local-snapshotter-context"
-version = "0.1.0"
+version = "0.1.1"
 description = "Captures a context-local dict of key-value pairs and returns a serialized token string suitable for propagation across process boundaries."
 requires-python = ">=3.10"
 dependencies = []
