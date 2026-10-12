@@ -37,3 +37,10 @@ The trade-off is the key. The default key is process-local random bytes, so a to
 ## Edge you will hit
 
 `float("nan")` is rejected by `set`, because Python's `json` module emits `NaN` by default, which is not valid JSON, and a round-trip would not be sound. Use `None` or a string sentinel instead if you need a not-a-number marker.
+
+## Performance
+
+The window keeps a bounded buffer, so `push` is constant time and memory does not
+grow with the length of the stream. `peak` and `trough` are linear in the window
+size, which is the trade that keeps `push` cheap.
+
